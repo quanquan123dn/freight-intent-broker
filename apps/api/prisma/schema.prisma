@@ -1,0 +1,437 @@
+// Freight Intent Broker - Prisma Schema
+// Version: 2.0
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ==================== ENUMS ====================
+enum Role {
+  ADMIN
+  OPS
+  SHIPPER
+  BUYER
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+}
+
+enum OrgType {
+  SHIPPER
+  BUYER
+}
+
+enum RfqStatus {
+  INGESTED
+  SPAM_SUSPECTED
+  VERIFIED
+  MATCHED
+  DISTRIBUTED
+  IN_NEGOTIATION
+  WON
+  LOST
+  EXPIRED
+}
+
+enum RfqSource {
+  FORM
+  EMAIL
+  CRAWL
+  PARTNER
+  MANUAL
+}
+
+enum Urgency {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum TransportMode {
+  SEA
+  AIR
+  ROAD
+  RAIL
+  MULTIMODAL
+}
+
+enum ServiceType {
+  DOOR_TO_DOOR
+  PORT_TO_PORT
+  DOOR_TO_PORT
+  PORT_TO_DOOR
+}
+
+enum PlanType {
+  BASIC
+  PRO
+  ENTERPRISE
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELLED
+  EXPIRED
+  PAST_DUE
+}
+
+enum DeliveryChannel {
+  WEB_APP
+  EMAIL
+  API
+  WEBHOOK
+}
+
+enum FeedbackOutcome {
+  WON
+  LOST
+  NO_RESPONSE
+  IN_PROGRESS
+}
+
+// ==================== USER & ORG ====================
+model User {
+  id           String     @id @default(uuid())
+  email        String     @unique
+  passwordHash String
+  role         Role       @default(SHIPPER)
+  status       UserStatus @default(ACTIVE)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  orgMemberships OrgMember[]
+  refreshTokens  RefreshToken[]
+  auditLogs      AuditLog[]
+
+  @@index([email])
+  @@index([role, status])
+}
+
+model RefreshToken {
+  id        String    @id @default(uuid())
+  userId    String
+  tokenHash String    @unique
+  deviceId  String?
+  expiresAt DateTime
+  createdAt DateTime  @default(now())
+  rotatedAt DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([tokenHash])
+}
+
+model Org {
+  id        String   @id @default(uuid())
+  name      String
+  type      OrgType
+  createdAt DateTime @default(now())
+
+  members       OrgMember[]
+  rfqs          Rfq[]
+  buyerProfile  BuyerProfile?
+  subscriptions Subscription[]
+
+  @@index([type])
+}
+
+model OrgMember {
+  id        String   @id @default(uuid())
+  userId    String
+  orgId     String
+  role      String   @default("member")
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  org  Org  @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, orgId])
+}
+
+// ==================== RFQ (1-1 relations for v1) ====================
+model Rfq {
+  id               String    @id @default(uuid())
+  source           RfqSource
+  shipperOrgId     String?
+  title            String
+  status           RfqStatus @default(INGESTED)
+  exclusiveBuyerId String?
+
+  readyDate      DateTime?
+  latestShipDate DateTime?
+  urgency        Urgency   @default(MEDIUM)
+
+  incoterm String?
+  notes    String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  shipperOrg  Org?            @relation(fields: [shipperOrgId], references: [id])
+  route       RfqRoute?
+  cargo       RfqCargo?
+  contact     RfqContact?
+  attachments RfqAttachment[]
+  events      RfqEvent[]
+  score       LeadScore?
+  matches     Match[]
+  deliveries  LeadDelivery[]
+
+  @@index([status])
+  @@index([shipperOrgId])
+  @@index([createdAt])
+  @@index([exclusiveBuyerId])
+}
+
+model RfqRoute {
+  id            String        @id @default(uuid())
+  rfqId         String        @unique
+  originCountry String
+  originCity    String?
+  originPort    String?
+  destCountry   String
+  destCity      String?
+  destPort      String?
+  mode          TransportMode
+  serviceType   ServiceType?
+  tradeLaneKey  String
+
+  rfq Rfq @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+
+  @@index([tradeLaneKey])
+  @@index([mode])
+}
+
+model RfqCargo {
+  id            String  @id @default(uuid())
+  rfqId         String  @unique
+  commodity     String?
+  hsCode        String?
+  weightKg      Float?
+  volumeCbm     Float?
+  containerQty  Int?
+  containerType String?
+  packageCount  Int?
+  isDangerous   Boolean @default(false)
+
+  rfq Rfq @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+}
+
+model RfqContact {
+  id          String    @id @default(uuid())
+  rfqId       String    @unique
+  contactName String
+  companyName String?
+  email       String
+  phone       String?
+  whatsapp    String?
+
+  piiHash      String
+  verified     Boolean   @default(false)
+  otpHash      String?
+  otpExpiresAt DateTime?
+
+  rfq Rfq @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+
+  @@index([piiHash])
+  @@index([email])
+}
+
+model RfqAttachment {
+  id        String   @id @default(uuid())
+  rfqId     String
+  fileName  String
+  fileUrl   String
+  fileSize  Int
+  mimeType  String
+  createdAt DateTime @default(now())
+
+  rfq Rfq @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+
+  @@index([rfqId])
+}
+
+model RfqEvent {
+  id        String   @id @default(uuid())
+  rfqId     String
+  action    String
+  actor     String?
+  details   Json?
+  createdAt DateTime @default(now())
+
+  rfq Rfq @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+
+  @@index([rfqId, createdAt])
+}
+
+// ==================== SCORING ====================
+model LeadScore {
+  id         String   @id @default(uuid())
+  rfqId      String   @unique
+  totalScore Int
+  breakdown  Json
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  rfq Rfq @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+
+  @@index([totalScore])
+}
+
+// ==================== BUYER & PREFERENCES ====================
+model BuyerProfile {
+  id          String   @id @default(uuid())
+  orgId       String   @unique
+  companyName String
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  org         Org              @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  preferences BuyerPreference?
+  matches     Match[]
+  deliveries  LeadDelivery[]
+}
+
+model BuyerPreference {
+  id String @id @default(uuid())
+
+  buyerId String @unique
+
+  modes           TransportMode[]
+  lanes           String[]
+  commodityTags   String[]
+  minVolumeKg     Float?
+  maxVolumeKg     Float?
+  minVolumeCbm    Float?
+  maxVolumeCbm    Float?
+  excludedLanes   String[]
+  urgencyAccepted Urgency[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  buyer BuyerProfile @relation(fields: [buyerId], references: [id], onDelete: Cascade)
+}
+
+// ==================== MATCHING & DELIVERY ====================
+model Match {
+  id          String   @id @default(uuid())
+  rfqId       String
+  buyerId     String
+  rank        Int
+  matchScore  Int
+  matchReason Json
+  isExclusive Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  rfq   Rfq          @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+  buyer BuyerProfile @relation(fields: [buyerId], references: [id], onDelete: Cascade)
+
+  @@unique([rfqId, buyerId])
+  @@index([buyerId])
+  @@index([rfqId, rank])
+}
+
+model LeadDelivery {
+  id         String          @id @default(uuid())
+  rfqId      String
+  buyerId    String
+  channel    DeliveryChannel
+  revealedAt DateTime?
+  createdAt  DateTime        @default(now())
+
+  rfq      Rfq              @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+  buyer    BuyerProfile     @relation(fields: [buyerId], references: [id], onDelete: Cascade)
+  feedback BuyerFeedback?
+
+  @@unique([rfqId, buyerId])
+  @@index([buyerId, revealedAt])
+  @@index([rfqId])
+}
+
+model BuyerFeedback {
+  id         String          @id @default(uuid())
+  deliveryId String          @unique
+  outcome    FeedbackOutcome
+  notes      String?
+  dealValue  Float?
+  createdAt  DateTime        @default(now())
+
+  delivery LeadDelivery @relation(fields: [deliveryId], references: [id], onDelete: Cascade)
+}
+
+// ==================== BILLING ====================
+model Subscription {
+  id        String             @id @default(uuid())
+  orgId     String
+  plan      PlanType
+  status    SubscriptionStatus
+  stripeId  String?
+  startDate DateTime
+  endDate   DateTime?
+
+  org          Org           @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  entitlements Entitlement[]
+
+  @@index([orgId, status])
+}
+
+model Entitlement {
+  id             String   @id @default(uuid())
+  subscriptionId String
+  quotaPerDay    Int
+  exclusiveLanes String[]
+
+  subscription Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+}
+
+// ==================== SECURITY ====================
+model Blacklist {
+  id        String   @id @default(uuid())
+  type      String
+  value     String
+  reason    String?
+  createdAt DateTime @default(now())
+
+  @@unique([type, value])
+  @@index([type])
+}
+
+model ApiKey {
+  id          String    @id @default(uuid())
+  orgId       String
+  keyHash     String    @unique
+  name        String
+  permissions String[]
+  expiresAt   DateTime?
+  lastUsedAt  DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@index([keyHash])
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String?
+  action    String
+  resource  String?
+  details   Json?
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([userId, createdAt])
+  @@index([action, createdAt])
+}

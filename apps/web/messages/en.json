@@ -1,0 +1,215 @@
+{
+    "nav": {
+        "howItWorks": "How it works",
+        "solutions": "Solutions",
+        "whyUs": "Why Freight Intent",
+        "pricing": "Pricing",
+        "resources": "Resources",
+        "getFreeQuote": "Get Free Quote",
+        "login": "Login",
+        "signUp": "Sign Up Free",
+        "forShippers": "For Exporters / Shippers",
+        "forForwarders": "For Freight Forwarders",
+        "byMode": "By Transport Mode",
+        "ocean": "Ocean Freight",
+        "air": "Air Freight",
+        "road": "Road & Cross-border",
+        "rail": "Rail & Multimodal",
+        "blog": "Blog / Insights",
+        "faq": "FAQ",
+        "helpCenter": "Help Center",
+        "contact": "Contact Us"
+    },
+    "hero": {
+        "badge": "Vietnam's #1 Freight Quote Platform",
+        "title1": "Ship Globally,",
+        "title2": "Quote Instantly",
+        "description": "Connect with verified freight forwarders in seconds. Get competitive quotes for sea, air, and road freight from Vietnam to anywhere.",
+        "cta": "Get Free Quote",
+        "forwarderCta": "I'm a Forwarder"
+    },
+    "howItWorks": {
+        "title": "How It Works",
+        "subtitle": "Get from shipment request to forwarder quotes in three simple steps",
+        "step1": {
+            "title": "Tell us your shipment",
+            "description": "Choose mode (Sea/Air/Road/Rail), origin/destination, cargo details, pickup date, and any special handling requirements."
+        },
+        "step2": {
+            "title": "Get matched instantly",
+            "description": "Our matching system routes your RFQ to the most relevant verified forwarders—based on lane, capacity, and service fit."
+        },
+        "step3": {
+            "title": "Compare & choose",
+            "description": "Receive multiple quotes in one place. Compare price, transit time, carrier options—then contact the forwarder directly."
+        }
+    },
+    "lanes": {
+        "title": "Popular Lanes From Vietnam",
+        "subtitle": "Verified forwarders ready for your cargo",
+        "vnUs": "VN → US",
+        "vnEu": "VN → EU",
+        "vnJpKr": "VN → Japan/Korea",
+        "vnAsean": "VN → ASEAN",
+        "customLane": "Need a custom lane? {link} and we'll match you with specialists.",
+        "submitRfq": "Submit your RFQ"
+    },
+    "services": {
+        "title": "What You Can Quote",
+        "subtitle": "Multi-modal solutions for every shipment type",
+        "ocean": {
+            "title": "Ocean Freight",
+            "f1": "FCL / LCL options",
+            "f2": "Carrier comparisons",
+            "f3": "Schedule visibility",
+            "f4": "Surcharge transparency"
+        },
+        "air": {
+            "title": "Air Freight",
+            "f1": "Standard / express",
+            "f2": "Consolidated or direct",
+            "f3": "DG support",
+            "f4": "Time-definite"
+        },
+        "road": {
+            "title": "Road & Cross-Border",
+            "f1": "FTL / LTL",
+            "f2": "Border clearance",
+            "f3": "Multi-stop delivery",
+            "f4": "GPS tracking"
+        },
+        "special": {
+            "title": "Project & Special",
+            "f1": "Oversize/overweight",
+            "f2": "Temperature-controlled",
+            "f3": "Fragile cargo",
+            "f4": "White-glove service"
+        }
+    },
+    "whyUs": {
+        "title": "Built For Exporters & Logistics Teams",
+        "faster": {
+            "title": "Faster sourcing",
+            "description": "Stop emailing 10 forwarders—get quotes in minutes"
+        },
+        "cleaner": {
+            "title": "Cleaner comparisons",
+            "description": "Consistent quote format across all providers"
+        },
+        "verified": {
+            "title": "Verified network",
+            "description": "Reduce risk from unknown brokers"
+        },
+        "privacy": {
+            "title": "Privacy first",
+            "description": "Your data isn't shared without consent"
+        }
+    },
+    "trust": {
+        "title": "Trust & Data Protection",
+        "subtitle": "Enterprise-grade security for your shipment data",
+        "point1": "Forwarder verification and ongoing compliance checks",
+        "point2": "Controlled RFQ visibility (only matched/approved forwarders)",
+        "point3": "Secure data handling and audit-friendly records",
+        "point4": "Optional NDA workflow for sensitive shipments"
+    },
+    "stats": {
+        "forwarders": "Active Forwarders",
+        "quotes": "Quotes Monthly",
+        "countries": "Countries",
+        "satisfaction": "Satisfaction Rate"
+    },
+    "testimonials": {
+        "title": "What Our Users Say",
+        "t1": {
+            "quote": "We used to wait days for replies. Now we compare quotes in the same afternoon.",
+            "author": "Export Manager",
+            "company": "FMCG Company"
+        },
+        "t2": {
+            "quote": "Better match quality than blast-emailing. The lanes are surprisingly accurate.",
+            "author": "Logistics Lead",
+            "company": "Manufacturing"
+        },
+        "t3": {
+            "quote": "Clear quote breakdowns helped us avoid hidden surcharges.",
+            "author": "Operations",
+            "company": "E-commerce Export"
+        }
+    },
+    "pricing": {
+        "title": "Simple, Transparent Pricing",
+        "shipper": {
+            "badge": "For Shippers",
+            "title": "Free Forever",
+            "subtitle": "Submit RFQs and receive quotes at no cost",
+            "f1": "Unlimited RFQ submissions",
+            "f2": "Multiple quotes per request",
+            "f3": "Direct forwarder contact",
+            "f4": "Quote comparison tools",
+            "cta": "Get Free Quote"
+        },
+        "forwarder": {
+            "badge": "For Forwarders",
+            "title": "Subscription Plans",
+            "subtitle": "Access verified RFQs matching your lanes",
+            "f1": "Matched RFQ notifications",
+            "f2": "Lead reveal credits",
+            "f3": "Priority matching",
+            "f4": "Performance analytics",
+            "cta": "View Plans"
+        }
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "q1": {
+            "question": "How many quotes will I receive?",
+            "answer": "Typically 3–8 quotes depending on lane and shipment details. Popular lanes tend to have more forwarder coverage."
+        },
+        "q2": {
+            "question": "Are forwarders really verified?",
+            "answer": "Yes. We vet business information, service capability, and track performance signals. Forwarders must pass our compliance checks."
+        },
+        "q3": {
+            "question": "Is it free for shippers/exporters?",
+            "answer": "Submitting an RFQ is completely free. Forwarders access leads through subscription-based plans."
+        },
+        "q4": {
+            "question": "Can I request DDP/DDU or customs support?",
+            "answer": "Yes—add it in your RFQ notes and we'll route to capable providers who offer those services."
+        },
+        "q5": {
+            "question": "What modes do you support?",
+            "answer": "Sea, air, road, rail, and special cargo options depending on lane. Most major trade lanes are well covered."
+        }
+    },
+    "cta": {
+        "title": "Ready to ship smarter?",
+        "subtitle": "Get competitive quotes from verified forwarders—without the back-and-forth.",
+        "primary": "Get Free Quote",
+        "secondary": "Sign Up Free"
+    },
+    "footer": {
+        "description": "Vietnam's leading freight quote platform connecting shippers with verified forwarders.",
+        "solutions": "Solutions",
+        "forShippers": "For Shippers",
+        "forForwarders": "For Forwarders",
+        "oceanFreight": "Ocean Freight",
+        "airFreight": "Air Freight",
+        "company": "Company",
+        "aboutUs": "About Us",
+        "careers": "Careers",
+        "blog": "Blog",
+        "contact": "Contact",
+        "legal": "Legal",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "cookies": "Cookie Policy",
+        "copyright": "© 2026 Freight Intent Broker. All rights reserved."
+    },
+    "common": {
+        "getQuote": "Get Quote",
+        "submitRfq": "Submit RFQ",
+        "learnMore": "Learn More"
+    }
+}

@@ -1,0 +1,215 @@
+{
+    "nav": {
+        "howItWorks": "Cách hoạt động",
+        "solutions": "Giải pháp",
+        "whyUs": "Tại sao chọn chúng tôi",
+        "pricing": "Bảng giá",
+        "resources": "Tài nguyên",
+        "getFreeQuote": "Nhận báo giá miễn phí",
+        "login": "Đăng nhập",
+        "signUp": "Đăng ký miễn phí",
+        "forShippers": "Cho nhà xuất khẩu / Shipper",
+        "forForwarders": "Cho Forwarder",
+        "byMode": "Theo phương thức vận chuyển",
+        "ocean": "Vận tải biển",
+        "air": "Vận tải hàng không",
+        "road": "Đường bộ & Xuyên biên giới",
+        "rail": "Đường sắt & Đa phương thức",
+        "blog": "Blog / Tin tức",
+        "faq": "Câu hỏi thường gặp",
+        "helpCenter": "Trung tâm hỗ trợ",
+        "contact": "Liên hệ"
+    },
+    "hero": {
+        "badge": "Nền tảng báo giá vận chuyển #1 Việt Nam",
+        "title1": "Vận chuyển toàn cầu,",
+        "title2": "Báo giá tức thì",
+        "description": "Kết nối với các forwarder uy tín trong vài giây. Nhận báo giá cạnh tranh cho vận tải biển, hàng không và đường bộ từ Việt Nam đến bất kỳ đâu.",
+        "cta": "Nhận báo giá miễn phí",
+        "forwarderCta": "Tôi là Forwarder"
+    },
+    "howItWorks": {
+        "title": "Cách hoạt động",
+        "subtitle": "Từ yêu cầu vận chuyển đến báo giá forwarder chỉ trong ba bước đơn giản",
+        "step1": {
+            "title": "Mô tả lô hàng của bạn",
+            "description": "Chọn phương thức (Biển/Không/Đường bộ/Đường sắt), điểm đi/đến, chi tiết hàng hóa, ngày lấy hàng và yêu cầu xử lý đặc biệt."
+        },
+        "step2": {
+            "title": "Được kết nối ngay lập tức",
+            "description": "Hệ thống matching của chúng tôi chuyển RFQ đến các forwarder phù hợp nhất—dựa trên tuyến đường, công suất và khả năng phục vụ."
+        },
+        "step3": {
+            "title": "So sánh & lựa chọn",
+            "description": "Nhận nhiều báo giá tại một nơi. So sánh giá, thời gian vận chuyển, lựa chọn hãng tàu—sau đó liên hệ trực tiếp với forwarder."
+        }
+    },
+    "lanes": {
+        "title": "Các tuyến đường phổ biến từ Việt Nam",
+        "subtitle": "Forwarder uy tín sẵn sàng cho hàng hóa của bạn",
+        "vnUs": "VN → Mỹ",
+        "vnEu": "VN → EU",
+        "vnJpKr": "VN → Nhật/Hàn",
+        "vnAsean": "VN → ASEAN",
+        "customLane": "Cần tuyến đường khác? {link} và chúng tôi sẽ kết nối bạn với chuyên gia.",
+        "submitRfq": "Gửi RFQ của bạn"
+    },
+    "services": {
+        "title": "Bạn có thể báo giá gì",
+        "subtitle": "Giải pháp đa phương thức cho mọi loại lô hàng",
+        "ocean": {
+            "title": "Vận tải biển",
+            "f1": "Tùy chọn FCL / LCL",
+            "f2": "So sánh hãng tàu",
+            "f3": "Hiển thị lịch trình",
+            "f4": "Minh bạch phụ phí"
+        },
+        "air": {
+            "title": "Vận tải hàng không",
+            "f1": "Tiêu chuẩn / Express",
+            "f2": "Gộp hàng hoặc trực tiếp",
+            "f3": "Hỗ trợ hàng nguy hiểm",
+            "f4": "Thời gian xác định"
+        },
+        "road": {
+            "title": "Đường bộ & Xuyên biên giới",
+            "f1": "FTL / LTL",
+            "f2": "Thông quan biên giới",
+            "f3": "Giao hàng nhiều điểm",
+            "f4": "Theo dõi GPS"
+        },
+        "special": {
+            "title": "Dự án & Hàng đặc biệt",
+            "f1": "Hàng quá khổ/quá tải",
+            "f2": "Kiểm soát nhiệt độ",
+            "f3": "Hàng dễ vỡ",
+            "f4": "Dịch vụ cao cấp"
+        }
+    },
+    "whyUs": {
+        "title": "Xây dựng cho nhà xuất khẩu & đội logistics",
+        "faster": {
+            "title": "Tìm nguồn nhanh hơn",
+            "description": "Ngừng gửi email cho 10 forwarder—nhận báo giá trong vài phút"
+        },
+        "cleaner": {
+            "title": "So sánh rõ ràng hơn",
+            "description": "Định dạng báo giá nhất quán từ tất cả nhà cung cấp"
+        },
+        "verified": {
+            "title": "Mạng lưới đã xác minh",
+            "description": "Giảm rủi ro từ các broker không rõ nguồn gốc"
+        },
+        "privacy": {
+            "title": "Bảo mật đầu tiên",
+            "description": "Dữ liệu của bạn không được chia sẻ nếu không có sự đồng ý"
+        }
+    },
+    "trust": {
+        "title": "Bảo mật & Bảo vệ dữ liệu",
+        "subtitle": "Bảo mật cấp doanh nghiệp cho dữ liệu vận chuyển của bạn",
+        "point1": "Xác minh forwarder và kiểm tra tuân thủ liên tục",
+        "point2": "Kiểm soát hiển thị RFQ (chỉ forwarder được kết nối/phê duyệt)",
+        "point3": "Xử lý dữ liệu an toàn và hồ sơ thân thiện với kiểm toán",
+        "point4": "Quy trình NDA tùy chọn cho các lô hàng nhạy cảm"
+    },
+    "stats": {
+        "forwarders": "Forwarder hoạt động",
+        "quotes": "Báo giá hàng tháng",
+        "countries": "Quốc gia",
+        "satisfaction": "Tỷ lệ hài lòng"
+    },
+    "testimonials": {
+        "title": "Khách hàng nói gì",
+        "t1": {
+            "quote": "Chúng tôi từng phải đợi nhiều ngày để nhận phản hồi. Giờ đây chúng tôi so sánh báo giá ngay trong buổi chiều.",
+            "author": "Quản lý xuất khẩu",
+            "company": "Công ty FMCG"
+        },
+        "t2": {
+            "quote": "Chất lượng kết nối tốt hơn việc gửi email hàng loạt. Các tuyến đường chính xác đáng ngạc nhiên.",
+            "author": "Trưởng phòng Logistics",
+            "company": "Sản xuất"
+        },
+        "t3": {
+            "quote": "Bảng phân tích báo giá rõ ràng giúp chúng tôi tránh các phụ phí ẩn.",
+            "author": "Vận hành",
+            "company": "Xuất khẩu E-commerce"
+        }
+    },
+    "pricing": {
+        "title": "Bảng giá đơn giản, minh bạch",
+        "shipper": {
+            "badge": "Cho Shipper",
+            "title": "Miễn phí mãi mãi",
+            "subtitle": "Gửi RFQ và nhận báo giá hoàn toàn miễn phí",
+            "f1": "Gửi RFQ không giới hạn",
+            "f2": "Nhiều báo giá cho mỗi yêu cầu",
+            "f3": "Liên hệ trực tiếp forwarder",
+            "f4": "Công cụ so sánh báo giá",
+            "cta": "Nhận báo giá miễn phí"
+        },
+        "forwarder": {
+            "badge": "Cho Forwarder",
+            "title": "Gói đăng ký",
+            "subtitle": "Tiếp cận RFQ đã xác minh phù hợp với tuyến đường của bạn",
+            "f1": "Thông báo RFQ phù hợp",
+            "f2": "Tín dụng reveal lead",
+            "f3": "Ưu tiên matching",
+            "f4": "Phân tích hiệu suất",
+            "cta": "Xem các gói"
+        }
+    },
+    "faq": {
+        "title": "Câu hỏi thường gặp",
+        "q1": {
+            "question": "Tôi sẽ nhận được bao nhiêu báo giá?",
+            "answer": "Thường từ 3–8 báo giá tùy thuộc vào tuyến đường và chi tiết lô hàng. Các tuyến phổ biến thường có nhiều forwarder phục vụ hơn."
+        },
+        "q2": {
+            "question": "Forwarder có thực sự được xác minh không?",
+            "answer": "Có. Chúng tôi kiểm tra thông tin doanh nghiệp, khả năng dịch vụ và theo dõi các tín hiệu hiệu suất. Forwarder phải vượt qua kiểm tra tuân thủ của chúng tôi."
+        },
+        "q3": {
+            "question": "Có miễn phí cho shipper/nhà xuất khẩu không?",
+            "answer": "Gửi RFQ hoàn toàn miễn phí. Forwarder truy cập lead thông qua các gói đăng ký."
+        },
+        "q4": {
+            "question": "Tôi có thể yêu cầu DDP/DDU hoặc hỗ trợ hải quan không?",
+            "answer": "Có—thêm vào ghi chú RFQ của bạn và chúng tôi sẽ chuyển đến các nhà cung cấp có khả năng cung cấp các dịch vụ đó."
+        },
+        "q5": {
+            "question": "Bạn hỗ trợ những phương thức vận chuyển nào?",
+            "answer": "Biển, không, đường bộ, đường sắt và các tùy chọn hàng đặc biệt tùy thuộc vào tuyến đường. Hầu hết các tuyến thương mại lớn đều được phục vụ tốt."
+        }
+    },
+    "cta": {
+        "title": "Sẵn sàng vận chuyển thông minh hơn?",
+        "subtitle": "Nhận báo giá cạnh tranh từ các forwarder đã xác minh—không cần qua lại.",
+        "primary": "Nhận báo giá miễn phí",
+        "secondary": "Đăng ký miễn phí"
+    },
+    "footer": {
+        "description": "Nền tảng báo giá vận chuyển hàng đầu Việt Nam kết nối shipper với các forwarder đã xác minh.",
+        "solutions": "Giải pháp",
+        "forShippers": "Cho Shipper",
+        "forForwarders": "Cho Forwarder",
+        "oceanFreight": "Vận tải biển",
+        "airFreight": "Vận tải hàng không",
+        "company": "Công ty",
+        "aboutUs": "Về chúng tôi",
+        "careers": "Tuyển dụng",
+        "blog": "Blog",
+        "contact": "Liên hệ",
+        "legal": "Pháp lý",
+        "privacy": "Chính sách bảo mật",
+        "terms": "Điều khoản dịch vụ",
+        "cookies": "Chính sách Cookie",
+        "copyright": "© 2026 Freight Intent Broker. Đã đăng ký bản quyền."
+    },
+    "common": {
+        "getQuote": "Nhận báo giá",
+        "submitRfq": "Gửi RFQ",
+        "learnMore": "Tìm hiểu thêm"
+    }
+}
