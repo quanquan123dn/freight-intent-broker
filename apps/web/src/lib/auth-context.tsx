@@ -9,6 +9,11 @@ interface User {
     role: 'ADMIN' | 'OPS' | 'SHIPPER' | 'BUYER';
 }
 
+interface AuthResponse {
+    accessToken: string;
+    user: User;
+}
+
 interface AuthContextType {
     user: User | null;
     accessToken: string | null;
@@ -29,7 +34,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     useEffect(() => {
         const refresh = async () => {
             try {
-                const res = await api.post('/auth/refresh');
+                const res = await api.post('/auth/refresh') as AuthResponse;
                 setAccessToken(res.accessToken);
                 setUser(res.user);
             } catch (e) {
@@ -43,7 +48,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const login = async (email: string, password: string) => {
         try {
-            const res = await api.post('/auth/login', { email, password });
+            const res = await api.post('/auth/login', { email, password }) as AuthResponse;
             setAccessToken(res.accessToken);
             setUser(res.user);
         } catch (e) {
@@ -67,7 +72,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
 
     const register = async (email: string, password: string, role: 'SHIPPER' | 'BUYER', companyName?: string) => {
-        const res = await api.post('/auth/register', { email, password, confirmPassword: password, role, companyName });
+        const res = await api.post('/auth/register', { email, password, confirmPassword: password, role, companyName }) as AuthResponse;
         setAccessToken(res.accessToken);
         setUser(res.user);
     };
